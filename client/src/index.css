@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary-50: #eef2ff;
+  --color-primary-100: #e0e7ff;
+  --color-primary-200: #c7d2fe;
+  --color-primary-300: #a5b4fc;
+  --color-primary-400: #818cf8;
+  --color-primary-500: #6366f1;
+  --color-primary-600: #4f46e5;
+  --color-primary-700: #4338ca;
+  --color-primary-800: #3730a3;
+  --color-primary-900: #312e81;
+  
+  --font-sans: "Outfit", "Inter", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 font-sans antialiased transition-colors duration-500;
+}
+
+.dark body {
+  @apply bg-[#030712] text-slate-100; /* Deep premium dark bg (Gray-950) */
+}
+
+
+.glass {
+  @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_8px_30px_rgb(0,0,0,0.04)];
+}
+
+.dark .glass {
+  @apply bg-[#111827]/70 backdrop-blur-xl border border-white/5 shadow-[0_8px_30px_rgb(0,0,0,0.12)];
+}
+
+.bg-mesh {
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,0.03) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,0.03) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,0.03) 0, transparent 50%);
+  background-attachment: fixed;
+}
+
+.dark .bg-mesh {
+  background-color: #030712;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,100%,60%,0.08) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,100%,60%,0.08) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,100%,60%,0.08) 0, transparent 50%);
+  background-attachment: fixed;
+}
+
+
+input, select {
+  @apply transition-all duration-200;
+}
+input:focus, select:focus {
+  @apply ring-2 ring-primary-500/50 border-primary-500 outline-none;
+}
+
